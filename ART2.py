@@ -50,7 +50,7 @@ def ART_Process(I, NumNeurons, a, b, c, d, WF1_F2, WF2_F1, rho, theta, e):
     while Counter > 0:
         u, p = Schema_ART2_F1(I, F2_feedback, a, b, theta, e, m)
 
-        y[abs(y+1)>e] = (np.dot(WF1_F2[list(abs(y+1)>e),:],np.transpose(p))).transpose()[0]
+        y[abs(y+1)>e] = (np.dot(WF1_F2[list(abs(y + 1) > e), :], np.transpose(p))).flatten()
         maxV = np.max(y)
         Js = np.where(y == maxV)
         J = Js[0][0]
